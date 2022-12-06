@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block title %}Contact Manjar shop{% endblock title %}
+  </head>
+  <body>
+    {% block body %}
+      
+      <img src="./static/img/contact.jpg" width="1500" height="400">
+      
+      <div>
+        <h2 class="text-center my-3" ><b>Contact Us</b></h2>
+        
+      <div class="container py-3 px-4">
+        <form method="post" action="/contact">
+        {% csrf_token %}
+          <div class="form-group mb-3">
+            <label for="name">Good name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="enter your full name">
+          </div>
+          
+          <div class="form-group mb-3">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="phone">Phone Number:</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="+91 ">
+          </div>
+         
+          <div class="form-group mb-3">
+            <label for="desc" class="form-label">Text Area</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+
+
+      {% endblock body %}
+  </body>
+</html>
