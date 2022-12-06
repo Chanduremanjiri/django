@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <title>New Doc</title>
+   <style>
+    .container{
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        position:absolute;
+        width:max-content;
+    }
+    .card{
+       border:1px solid black;
+       width:max-content;
+       text-align:center;
+       display:inline-block;
+       margin:5px; 
+    }
+    .card img{
+        width: 300px;
+        padding:5px;
+    }
+    .title{
+        font-weight:bold;
+        margin:20px;
+    }
+    button{
+        border:2px solid red;
+        background: pink;
+        color: white;
+        margin:20px;
+        padding:5px 10px;
+    }
+    button:hover{
+        box-shadow:0 0 5px 5px blue inset;
+    }
+   </style>
+</head>
+   <body>
+    <div class="container" >
+          <div class="card" id="item1">
+          <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg">
+
+          <div class="title"> Red heel</div>
+          <div>
+               <label>Size: </label>
+               <select>
+                   <option>30</option>
+                   <option>32</option>
+                   <option>34</option>
+                   <option>36</option>
+               </select>
+          </div>
+           <button>Add to cart</button>
+       </div>
+   </body>
+
+</html>

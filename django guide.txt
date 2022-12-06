@@ -1,0 +1,154 @@
+// pip install django
+//pip install django --upgrade
+//install django extension, python extension
+django-admin startproject userlogin
+// if you  enter django admin 
+all its command will shown
+2)  python manage.py makemigrations
+3) python manage.py migrate
+4)python manage.py startapp home
+5) go to mainfile settings.py
+     in INSTALLED_APPS =[]
+    add here line which matches other like
+     "home.apps.HomeConfig",
+     home is pproject app in that apps.py is file which contain HomeConfig
+6)ALLOWED_HOSTS = ['manjiriprogrraming.com']
+7)create static and templates folder
+in main directory
+8) search on google
+   static dirs django documentation , open it
+  STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]     add it in last of setting.py
+
+9) add BASE_DIR / "templates" in TEMPLATES = [
+"DIRS"
+]
+7) add boiler template in index.html creat in templates
+ add login.html
+8)go to urls.py in mainproject folder
+   add include, then add another path for blank"", include('home.urls')
+9) create urls.py in home folder
+     add copy from before urls file to here
+     then delete all path,
+     add path
+      path('', views.index, name="home"),
+    path('login', views.login, name="login"),
+    path('logout', views.logout, name="logout"),
+10) from home import views
+11) going to in views.py 
+    create function like
+          def index(request):
+   return render(request, 'index.html')
+12) create super user
+      python manage.py creatsuperuser
+ 13)
+if request.method == "POST":
+14) {% csrf_token %} add just bellow it
+15) in form add name with type
+16)
+from django.contrib.auth.models import User
+add in views.py
+17)
+ username = request.POST.get('username')
+      password = request.POST.get('password')
+ replace with this names
+18)
+add
+if user is not None:
+    # A backend authenticated the credentials
+else:
+    # No backend authenticated the credentials
+19) import redirect
+  add, if la
+       return redirect("/profile")
+  else
+     return render(request, 'login.html')
+20)
+ if request.user.is_anonymous:
+       return redirect("/login")     add it for cheaking ananonymous
+21) import
+from django.contrib.auth import logout
+22)///////////////////// change the name to logoutuser
+  add   
+logout(request)
+    return request("/login")
+in profile add  
+logout(request)
+
+
+    return request("/login")
+
+ <a href="/logout">Logout</a>
+23) IMPORT THIS THINGS 
+
+    login(request ,user)
+ in login def
+
+///////////////////////////how to create epositery
+open github
+login
+repositary new, then name, public create
+// shpuld have hit and githash
+// go to that folder and open gitbash there
+1) git init
+
+3) git status
+4) git commit -m  "first-commit"
+5) git branch -M main
+5) git remote add origin https://github.com/Chanduremanjiri/djangoese.git
+6) git push -u origin maingit push -u origin master
+
+echo "# django" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Chanduremanjiri/django.git
+git push -u origin main
+
+/////////////////////////
+crud, create , read, update, delete
+
+1   {{variable}}
+views 
+context = 
+{'variable' : "hhh"}
+return add
+////addng images
+creat img folder in static
+src="/static/img.jped"
+
+mx = margin from x 4
+
+///// create database
+add it in model
+from django.db import models
+
+# Create your models here.
+class Contact(models.Model):
+    name=  models.CharField(max_length=122) 
+    email= models.CharField(max_length=122)
+    phone= models.CharField(max_length=12)
+    desc= models.TextField()
+    date = models.DateField()
+   
+     def __str__(self):
+        return self.name
+
+3) from home.models import Contact
+# Register your models here.
+admin.site.register(Contact) in homes, in admin
+
+makemigrtions
+migrate
+4)
+if request.method == "POST":
+      name = request.POST.get('name')
+      email = request.POST.get('email')
+      phone = request.POST.get('phone')
+      desc = request.POST.get('desc')
+      contact = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
+      contact.save()
+      messages.success(request, 'Your Message has been sent!.')
